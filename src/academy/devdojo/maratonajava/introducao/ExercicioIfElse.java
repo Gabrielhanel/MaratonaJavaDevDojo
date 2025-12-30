@@ -10,25 +10,17 @@ public class ExercicioIfElse {
     //psvma (public static void main(String[] args))
     public static void main(String[] args) {
         double salario = 80000;
-
-
+        double taxa;
         if (salario >= 0 && salario <= 38883) {
-            double taxa = 35.7;
-            taxa /= 100;
-            double SalarioComTaxas = salario - (salario * taxa);
-            System.out.println("Salario: " + SalarioComTaxas);
+            taxa = 35.7 / 100;
 
         } else if (salario >= 38884 && salario <= 77320) {
-            double taxa = 37.56;
-            taxa /= 100;
-            double SalarioComTaxas = salario - (salario * taxa);
-            System.out.println("Salario: " + SalarioComTaxas);
+            taxa = 37.56 / 100;
 
         } else {
-            double taxa = 49.5;
-            taxa /= 100;
-            double SalarioComTaxas = salario - (salario * taxa);
-            System.out.println("Salario: " + SalarioComTaxas);
+            taxa = 49.5 / 100;
         }
+        double SalarioComTaxas = salario - (salario * taxa);
+        System.out.println("Salario: " + SalarioComTaxas);
     }
 }

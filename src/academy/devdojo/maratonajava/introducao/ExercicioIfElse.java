@@ -14,7 +14,7 @@ public class ExercicioIfElse {
         if (salario >= 0 && salario <= 38883) {
             taxa = 35.7 / 100;
 
-        } else if (salario >= 38884 && salario <= 77320) {
+        } else if (salario <= 77320) {
             taxa = 37.56 / 100;
 
         } else {

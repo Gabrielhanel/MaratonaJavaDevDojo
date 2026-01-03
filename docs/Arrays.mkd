@@ -1,0 +1,35 @@
+## Arrays 
+
+### Sintaxe:
+* int[] idade (mais comum)
+* int idade[]
+
+Essa declaração não cria um array, apenas cria uma referência para ele. Para criar um array, existem 2 formas corretas:
+``` java 
+    int[] idade = new int[tamanho_desejado]; 
+    // Definindo quanto espaço em memoria estaremos alocando; ou:
+
+    int[] idade = {valor1, valor2, valor3};
+    // Isso cria um array de 3 posições (índices 0, 1 e 2) e atribui imediatamente 'valor1' ao índice 0, 'valor2' ao índice 1 e 'valor3' ao índice 2.
+``` 
+* Podemos iniciar a variavel tambem com o tipo nulo:
+    ```java 
+    int[] idade = null; 
+    ```
+* A não ser que seja inicializada com um valor, todo array inicia com os valores: 
+    * byte, short, int, long, float e double: <b>0</b>
+    * String: <b>null</b>
+    * char: <b>'\u0000' ' '</b>
+    * boolean: <b> false</b>
+
+## Arrays Multidimensionais
+
+* Cada posição do array faz referência à um novo array.
+
+### Sintaxe: 
+
+``` java
+int[][] dias = new int[3][2];
+
+// Nesse caso, o (3) representa o espaço em memoria que eestaremos alocando em cada array original. Já o (2) representa o numero de espaços que estaremos alocando em cada "sub array" 
+```

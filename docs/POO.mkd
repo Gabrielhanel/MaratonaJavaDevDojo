@@ -1,0 +1,120 @@
+# POO
+
+## Classes
+* Classes basicamente são moldes para criar objetos, podendo conter variáveis e métodos. Os objetos criados a partir de uma classe, podem conter seus respectivos valores para as variáveis e podem executar os métodos.
+
+Veja o exemplo abaixo:
+
+```java
+public class Carro {
+    public String name;
+    public String model;
+    public int year;
+}
+
+// Em outro arquivo:
+package academy.devdojo.maratonajava.javacore.Aintroducaoclasses.test;
+
+import academy.devdojo.maratonajava.javacore.Aintroducaoclasses.dominio.Carro;
+
+public class CarrosTest {
+    public static void main(String[] args) {
+        Carro golBolinha = new Carro();
+        Carro unoMille = new Carro();
+
+        golBolinha.model = "Volkswagen Gol G2";
+        golBolinha.year = 1995;
+        golBolinha.name = "Gol Bolinha";
+
+        unoMille.model = "Fiat Uno Mille";
+        unoMille.name = "Uno Mille";
+        unoMille.year = 1990;
+
+        System.out.println("Nome: " + golBolinha.model + " Ano: " + golBolinha.year + " Modelo: " + golBolinha.model);
+        // Imprime: Nome: Volkswagen Gol G2 Ano: 1995 Modelo: Volkswagen Gol G2
+        System.out.println("-----------------------------");
+        System.out.println("Nome: " + unoMille.model + " Ano: " + unoMille.year + " Modelo: " + unoMille.model);
+        // Imprime: Nome: Fiat Uno Mille Ano: 1990 Modelo: Fiat Uno Mille
+    }
+}
+```
+
+No exemplo acima, criamos duas classes: `Carro` e `CarrosTest`. A primeira serve para criar objetos e armazenar seus respectivos tipos de variáveis, enquanto a segunda define valores para as variáveis baseado na classe `Carro` e imprime seus respectivos valores.
+
+## Métodos
+
+* Metodos basicamente representam uma ação que o objeto pode executar. Os métodos podem ou nao receber parametros e tambem podem ou nao retornar um valor. No exemplo a seguir:
+
+```java
+package academy.devdojo.maratonajava.javacore.Bintroducaometodos.dominio;
+
+public class Calculadora {
+
+    public void somaDoisNumeros(int numberA, int numberB){
+        int soma = numberA + numberB;
+        System.out.println(soma);
+    }
+
+    public void subtraiDoisNumeros(int numberA, int numberB){
+        int soma = numberA - numberB;
+        System.out.println(soma);
+    }
+
+    public double divideDoisNumeros(double num1, double num2){
+        return num1 / num2;
+    }
+    // No método subtraiDoisNumeros, o metodo é do tipo void e portanto não retorna um valor, apenas executa uma ação. Já no metodo divideDoisNumeros, ele não imprime o resultado, apenas calcula e devolve o valor usando a palavra-chave return. Quem chama o método pode armazenar esse valor em uma variável, usar em cálculos ou exibir na tela.
+}
+
+// Em outro arquivo:
+package academy.devdojo.maratonajava.javacore.Bintroducaometodos.test;
+
+import academy.devdojo.maratonajava.javacore.Bintroducaometodos.dominio.Calculadora;
+
+public class CalculadoraTest01 {
+    public static void main(String[] args) {
+        Calculadora calculadora = new Calculadora();
+        calculadora.somaDoisNumeros(10, 20);
+        // Retorna 30
+        calculadora.subtraiDoisNumeros(35, 8);
+        // Retorna 27
+    }
+}
+
+package academy.devdojo.maratonajava.javacore.Bintroducaometodos.test;
+
+import academy.devdojo.maratonajava.javacore.Bintroducaometodos.dominio.Calculadora;
+
+public class CalculadoraTest02 {
+    public static void main(String[] args) {
+        Calculadora calculadora = new Calculadora();
+        double result = calculadora.divideDoisNumeros(20, 2);
+        System.out.println(result);
+        // Retorna 10
+    }
+}
+```
+
+* Var Args
+   * Ao percorrermos um array, existe um limite de elementos. Um recurso introduzido mais recentemente é o varargs. Ele permite que um metodo aceite um numero indefinido de argumentos, sendo que eles serao armazenados em um array. Porém ele tem algumas peculiaridades:
+
+```java
+    public void somaVarArgs(int... numeros){
+        int soma = 0;
+        for (int num : numeros){
+            soma += num;
+        }
+        System.out.println(soma);
+    }
+
+    public static void main(String[] args) {
+        Calculadora calculadora = new Calculadora();
+        calculadora.somaVarArgs(1, 2, 3, 4, 5);
+        // Retorna 15
+    }
+```
+
+* Com o Varargs, não é necessario criar uma nova variável com o array. Basta passar o array como argumento para o metodo.
+* Ao contrário da outra forma, não podemos passar os ... após o tipo da variavel, por exemplo `int numeros...`, pois gera um erro de sintaxe.
+* Também não podemos passar outros argumentos após esse array, por exemplo `int... numeros, int numberB`. Caso tivessemos, é necessário que os argumentos fossem declarados depois do array, por exemplo `int numberB, int... numeros`.
+* Caso associarmos um atributo antes do varArgs, por exemplo `int numberA, int... numeros`, o primeiro argumento será armazenado na variavel numberA e o restante será armazenado no array numeros.

@@ -15,7 +15,7 @@ public class CarrosTest {
         unoMille.name = "Uno Mille";
         unoMille.year = 1990;
 
-        System.out.println("Nome: " + golBolinha.model + " Ano: " + golBolinha.year + " Modelo: " + golBolinha.model);
+        System.out.println("Nome: " + golBolinha.name + " Ano: " + golBolinha.year + " Modelo: " + golBolinha.model);
         System.out.println("-----------------------------");
         System.out.println("Nome: " + unoMille.model + " Ano: " + unoMille.year + " Modelo: " + unoMille.model);
     }

@@ -11,4 +11,11 @@ public class Calculadora {
         int soma = numberA - numberB;
         System.out.println(soma);
     }
+
+    public double divideDoisNumeros(double num1, double num2){
+        if (num2 == 0){
+            return 0;
+        }
+        return num1 / num2;
+    }
 }

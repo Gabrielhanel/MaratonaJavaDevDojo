@@ -1,7 +1,8 @@
 # POO
 
 ## Classes
-* Classes basicamente são moldes para criar objetos, podendo conter variáveis e métodos. Os objetos criados a partir de uma classe, podem conter seus respectivos valores para as variáveis e podem executar os métodos.
+
+- Classes basicamente são moldes para criar objetos, podendo conter variáveis e métodos. Os objetos criados a partir de uma classe, podem conter seus respectivos valores para as variáveis e podem executar os métodos.
 
 Veja o exemplo abaixo:
 
@@ -43,7 +44,7 @@ No exemplo acima, criamos duas classes: `Carro` e `CarrosTest`. A primeira serve
 
 ## Métodos
 
-* Metodos basicamente representam uma ação que o objeto pode executar. Os métodos podem ou nao receber parametros e tambem podem ou nao retornar um valor. No exemplo a seguir:
+- Metodos basicamente representam uma ação que o objeto pode executar. Os métodos podem ou nao receber parametros e tambem podem ou nao retornar um valor. No exemplo a seguir:
 
 ```java
 package academy.devdojo.maratonajava.javacore.Bintroducaometodos.dominio;
@@ -95,8 +96,8 @@ public class CalculadoraTest02 {
 }
 ```
 
-* Var Args
-   * Ao percorrermos um array, existe um limite de elementos. Um recurso introduzido mais recentemente é o varargs. Ele permite que um metodo aceite um numero indefinido de argumentos, sendo que eles serao armazenados em um array. Porém ele tem algumas peculiaridades:
+- Var Args
+  - Ao percorrermos um array, existe um limite de elementos. Um recurso introduzido mais recentemente é o varargs. Ele permite que um metodo aceite um numero indefinido de argumentos, sendo que eles serao armazenados em um array. Porém ele tem algumas peculiaridades:
 
 ```java
     public void somaVarArgs(int... numeros){
@@ -114,7 +115,34 @@ public class CalculadoraTest02 {
     }
 ```
 
-* Com o Varargs, não é necessario criar uma nova variável com o array. Basta passar o array como argumento para o metodo.
-* Ao contrário da outra forma, não podemos passar os ... após o tipo da variavel, por exemplo `int numeros...`, pois gera um erro de sintaxe.
-* Também não podemos passar outros argumentos após esse array, por exemplo `int... numeros, int numberB`. Caso tivessemos, é necessário que os argumentos fossem declarados depois do array, por exemplo `int numberB, int... numeros`.
-* Caso associarmos um atributo antes do varArgs, por exemplo `int numberA, int... numeros`, o primeiro argumento será armazenado na variavel numberA e o restante será armazenado no array numeros.
+- Com o Varargs, não é necessario criar uma nova variável com o array. Basta passar o array como argumento para o metodo.
+- Ao contrário da outra forma, não podemos passar os ... após o tipo da variavel, por exemplo `int numeros...`, pois gera um erro de sintaxe.
+- Também não podemos passar outros argumentos após esse array, por exemplo `int... numeros, int numberB`. Caso tivessemos, é necessário que os argumentos fossem declarados depois do array, por exemplo `int numberB, int... numeros`.
+- Caso associarmos um atributo antes do varArgs, por exemplo `int numberA, int... numeros`, o primeiro argumento será armazenado na variavel numberA e o restante será armazenado no array numeros.
+
+### Vantagens de usar atributos privados ou protegidos (private e protected)
+
+- Podemos garantir que o atributo seja acessado apenas pela classe em que ele foi criado
+- Podemos garantir que o atributo seja acessado apenas pela classe em que ele foi criado ou por classes filhas
+- Podemos garantir que o atributo possa ser apenas lido pelas classes filhas (por exemplo, ao calcular uma média, podemos apenas exibir o resultado, mas não poderemos alterar o valor.)
+
+### Sobrecarga de métodos
+
+- Métodos com nomes iguais, mas com tipos ou quantidade de parâmetros diferentes
+
+### Construtores
+
+- O construtor é o metodo da classe que permite que voce inicie o objeto criado com valores iniciais. Por exemplo:
+
+```java
+    public Anime(String tipo, int episodios, String nome, String genero) {
+        this.tipo = tipo;
+        this.episodios = episodios;
+        this.nome = nome;
+        this.genero = genero;
+    }
+
+    // Novo objeto com valores iniciais
+    Anime anime = new Anime("Mangá", 23, "Haikyuu", "Terror");
+```
+* O construtor deve ser declarado com o mesmo nome da classe e com o mesmo tipo de retorno.

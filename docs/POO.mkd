@@ -146,3 +146,11 @@ public class CalculadoraTest02 {
     Anime anime = new Anime("Mangá", 23, "Haikyuu", "Terror");
 ```
 * O construtor deve ser declarado com o mesmo nome da classe e com o mesmo tipo de retorno.
+
+#### Quando criamos um objeto:
+1. Alocado espaço em memoria pro objeto;
+2. Cada atributo de classe é criano e inicializado com o valor default ou o que for passado;
+3. Bloco de inicialização é executado
+4. Construtor é executado
+
+* O bloco de inicialização é executado independentemente do construtor que for chamado

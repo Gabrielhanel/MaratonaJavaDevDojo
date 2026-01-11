@@ -1,5 +1,66 @@
 # POO
+## Pilares
+### Abstração
+* é o processo de identificar
+e definir características essenciais de objetos do mundo real, “traduzindo”
+(representando) essas características em forma de classes e objetos.
 
+### Encapsulamento
+* Encapsulamento é esconder os detalhes internos de uma classe e expor apenas o que faz sentido.
+    * Exemplo: uma classe ContaBancaria não permite alterar o saldo diretamente; o saldo é privado e só pode mudar via métodos como depositar e sacar, que aplicam regras.
+* Os principais objetivos do encapsulamento são:
+    * Controle de Acesso: Controlar quem pode acessar e modificar os atributos da
+    classe. Isso ajuda a evitar alterações indesejadas e a garantir que os dados sejam
+    usados corretamente.
+
+    * Proteção dos Dados: Garantir que os dados internos da classe não sejam
+    corrompidos ou acessados indevidamente.
+    * Flexibilidade: Permitir que a implementação interna da classe seja alterada sem
+    afetar o código que a utiliza. Isso é possível porque a interface pública (métodos
+    públicos) permanece a mesma.
+
+### Herança
+* é o princípio que permite que uma classe (subclasse) herde os
+atributos e métodos de outra classe (superclasse), facilitando a reutilização
+de código, a organização hierárquica e a promoção de relações entre
+objetos.
+
+* Quando você possui duas ou mais classes com atributos e métodos em
+comum, a herança facilita a criação de uma estrutura hierárquica, onde
+uma classe "pai" define os elementos comuns que serão herdados pelas
+classes "filhas".
+
+* Em Java utilizamos a palavra-chave **extends** para indicar que uma Classe
+herda as informações de outra.
+
+### Polimorfismo
+* é o princípio a partir do qual as classes derivadas de uma
+única classe base são capazes de invocar os métodos que, embora
+apresentem a mesma assinatura, comportam-se de maneira diferente para
+cada uma das classes derivadas.
+
+#### Polimorfismo Estático
+* O polimorfismo estático, também conhecido como sobrecarga de método
+ou polimorfismo de compile-time, é um conceito de POO em que uma
+classe pode ter vários métodos com o mesmo nome, mas com diferentes
+parâmetros.
+
+#### Polimorfismo Dinâmico
+* O polimorfismo dinâmico, também conhecido como polimorfismo de
+tempo de execução ou sobrescrita de método, permite que objetos de
+diferentes classes, que compartilham uma relação de herança, respondam
+de maneira específica a chamadas de métodos comuns.
+
+* A sobrescrita de método é uma forma de implementar o polimorfismo
+dinâmico, na qual uma classe filha (subclasse) redefine um método
+previamente definido na classe pai (superclasse).
+
+* A subclasse fornece sua própria implementação do método, alterando seu
+comportamento sem mudar a assinatura do método (nome, parâmetros e
+tipo de retorno).
+* Com o polimorfismo, é possível reutilizar e adaptar comportamentos em
+diferentes contextos, permitindo que classes e métodos sejam usados de
+maneira flexível, sem perder a consistência da interface ou lógica comum.
 ## Classes
 
 - Classes basicamente são moldes para criar objetos, podendo conter variáveis e métodos. Os objetos criados a partir de uma classe, podem conter seus respectivos valores para as variáveis e podem executar os métodos.
@@ -128,7 +189,8 @@ public class CalculadoraTest02 {
 
 ### Sobrecarga de métodos
 
-- Métodos com nomes iguais, mas com tipos ou quantidade de parâmetros diferentes
+- Métodos com nomes iguais, mas com tipos ou quantidade de parâmetros diferentes. A sobrecarga de métodos é uma das maneiras
+pelas quais Java implementa o polimorfismo.
 
 ### Construtores
 
@@ -146,6 +208,9 @@ public class CalculadoraTest02 {
     Anime anime = new Anime("Mangá", 23, "Haikyuu", "Terror");
 ```
 * O construtor deve ser declarado com o mesmo nome da classe e com o mesmo tipo de retorno.
+* Normalmente, usamos um construtor para fornecer valores iniciais para as variáveis de instância
+definidas pela classe ou para executar algum outro procedimento de inicialização necessário à criação
+de um objeto totalmente formado.
 
 #### Quando criamos um objeto:
 1. Alocado espaço em memoria pro objeto;
@@ -154,3 +219,80 @@ public class CalculadoraTest02 {
 4. Construtor é executado
 
 * O bloco de inicialização é executado independentemente do construtor que for chamado
+
+#### Classes abstratas
+
+- Uma classe abstrata pode ser herdada, mas não pode ser instanciada.
+* Métodos abstratos não possuem implementação, e devem ser
+obrigatoriamente implementados (@override) nas subclasses.
+
+* Métodos abstratos são uma forma de garantir que todas as
+subclasses tenham um determinado comportamento definido
+
+#### Palavra-chave **final**
+* Para evitar que alguém da equipe sobrescreva o método e
+possa, “sem querer ou não”, comprometer o cálculo, podemos utilizar a
+palavra chave “final”.
+* Quando queremos que uma classe não seja instanciada e sirva apenas para
+ser herdada utilizamos a palavra chave “abstract”.
+* Com a palavra chave “final” temos o contrário, podemos definir que uma
+classe não possa ser herdada.
+
+#### Tipos genéricos
+* Tipos genéricos em POO (Programação Orientada a Objetos) é um
+recurso que permite escrever classes, interfaces e métodos que são
+independentes do tipo de dado específico que será usado como
+parâmetro.
+
+* Em outras palavras, em vez de escrever classes e métodos para lidar com tipos de dados específicos (como uma classe para lidar com inteiros,
+outra para lidar com strings, etc.), os tipos genéricos permitem escrever
+classes e métodos que podem funcionar com qualquer tipo de dados
+que seja especificado no momento da utilização.
+
+#### Diamond Syntax
+* A sintaxe diamond, também conhecida como operador diamante ou diamante vazio, é um
+recurso adicionado ao Java 7 que permite que o compilador infira o tipo de um objeto em uma
+declaração de um objeto genérico.
+
+* Antes da introdução da sintaxe diamond, a declaração de um objeto genérico exigia que o tipo
+de objeto fosse especificado duas vezes - uma vez na declaração da variável e novamente na
+criação do objeto. Por exemplo, para criar um ArrayList que armazena objetos do tipo String,
+era necessário declará-lo assim:
+
+    * ```Cesta<Fruta> cestaFrutas = new Cesta<Fruta>();```
+
+* Com a sintaxe diamond, no entanto, é possível omitir a especificação do tipo de objeto na
+criação do objeto, deixando que o compilador infira o tipo com base no tipo especificado na
+declaração da variável. O exemplo acima poderia ser reescrito assim:
+
+    * ```Cesta<Fruta> cestaFrutas = new Cesta<>();```
+
+### Interfaces
+* Interfaces são um conceito da programação orientada a objetos que
+tem a ver com o comportamento esperado para uma ou um conjunto
+de classes.
+
+* Interfaces definem o que uma classe deve fazer e não como. Assim,
+interfaces nem sempre possuem a implementação de métodos pois
+podem apenas declarar um conjunto de métodos, ou seja, o
+comportamento que uma ou um conjunto de classes deve ter.
+
+#### Coleções em Java – API Collections
+* Collections em Java se referem a um conjunto de classes e interfaces que
+fornecem uma estrutura para armazenar e manipular dados em grupo. As
+collections são parte do framework de coleções de Java e foram projetadas
+para serem flexíveis, eficientes e seguras para threads. O framework de
+coleções em Java inclui as seguintes interfaces principais:
+
+    * Itarable: é a interface raiz de maioria das interfaces de coleções em Java.
+    * Collection: Define métodos básicos para adicionar, remover e recuperar elementos
+    de uma coleção.
+    * List: uma coleção ordenada que permite elementos duplicados.
+    * Set: uma coleção não ordenada que não permite elementos duplicados.
+    * Map: uma coleção que armazena pares de chave-valor únicos. Cada elemento é
+    acessado por meio de sua chave exclusiva.
+* Além das interfaces acima, o framework de coleções em Java também
+inclui várias classes úteis para trabalhar com coleções, como ArrayList,
+LinkedList, HashSet, TreeSet e HashMap. Essas classes fornecem
+implementações concretas das interfaces acima e adicionam recursos
+adicionais, como iteração, ordenação e pesquisa.

@@ -296,3 +296,6 @@ inclui várias classes úteis para trabalhar com coleções, como ArrayList,
 LinkedList, HashSet, TreeSet e HashMap. Essas classes fornecem
 implementações concretas das interfaces acima e adicionam recursos
 adicionais, como iteração, ordenação e pesquisa.
+
+#### Static (modificador de acesso)
+* Vai fazer o atributo pertencer à classe, e todos os atributos terão o mesmo valor para todos os objetos da classe.
